@@ -1,0 +1,128 @@
+%---COLOR---%
+\definecolor{rubrica}{RGB}{200,12,12} %color rojo de las rubricas
+\definecolor{letra}{RGB}{3,142,3} %color verde de las lettrine
+\definecolor{neg}{RGB}{0,0,0} %color negro absoluto
+\definecolor{azul}{RGB}{0,0,255}
+
+%\renewcommand{\chaptermark}[1]{ \markboth{#1}{}}%este cogigo es para quitar la palabra capítulo de la cabecera cuado se está escribiendo en la clase book.
+
+%---separacion columnas multicol----%
+\setlength{\columnsep}{1cm}
+
+%---------------------------COMANDOS LECTURAS------------------%
+%titulo para fiesta
+\newcommand{\fest}[2]{%
+\subsection[#1]{#1 \\* #2
+%\vspace{4 mm}%
+%\begin{center}%
+%{\large\scshape{\color{rubrica}#1}\\*{\color{azul}#2}}%
+%\end{center}%
+%\vspace{-6 mm}%
+}}
+%titulo para no fiesta
+\newcommand{\festnoday}[1]{%
+\vspace{4 mm}%
+\pagebreak[3]%
+\begin{center}%
+{\large\scshape{\color{azul}#1}}
+\end{center}%
+\vspace{-6 mm}%
+}
+
+%para empezar la lectura:
+\newcommand{\lectu}[2]{%
+\subsubsection{#1{\hfill{\color{rubrica}#2}}}%
+}
+
+\newcommand{\lect}[2]{%[3]
+\subsubsection{#1{\hfill{\color{rubrica}#2}}}%
+%\begin{samepage}%
+%\vspace{8 mm}%
+%\noindent{#1{\hfill{\color{rubrica}#2}}}%
+%\vspace{3 mm}%
+%\\*%
+%\noindent{#3}%
+%\end{samepage}%
+}
+%-----------------VERSICULUM-----------------------%
+\newcommand{\va}{{\color{rubrica}\Vbar . }}
+\newcommand{\ra}{{\color{rubrica}\Rbar . }}
+\newcommand{\rub}[1]{{\fontsize{12}{14}\selectfont {\color{rubrica}\textit{#1}}  \par}}%comando para poner letra roja, en tamaño 12, con espacio 14 y italica.
+
+
+%----lettrine---%
+\newcommand{\ldos}[1]{\lettrine[lines=2]{\color{letra}\zall{#1}}{}}
+\newcommand{\ltres}[1]{\lettrine[lines=3]{\color{letra}\zall{#1}}{}}
+
+%%---- cambiar margen ----- %%
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+%se escribe: begin{changemargin}{xcm}{xcm} y se acaba end{changemargin}
+%-----------------------------------------------%
+%%------PARA ESCRIBIR EN PARALELO BILINGÜE----%%
+\usepackage{parcolumns}
+\usepackage{etoolbox}
+\makeatletter%para dibujar la linea roja. Si no, se pone negra.
+\patchcmd{\pc@placeboxes}{\vrule}{{\VRULE}}{}{}
+\makeatother
+\newcommand\VRULE{\color{red}\vrule width 0.5pt}
+
+%comando para escribir solo ``\PC{...}{...}'', en vez de todo el codigo:
+\newcommand\PC[2]{%
+\pretolerance=150%
+\tolerance=753%
+\hbadness=752%
+\hfuzz0pt%
+\emergencystretch=0em%
+\begin{parcolumns}[nofirstindent, rulebetween]{2}%
+\colchunk[1]{\selectlanguage{latin}#1}%
+\colchunk[2]{\selectlanguage{swedish}#2}%
+\colplacechunks%
+\end{parcolumns}% 
+}%\addvspace{0.3\baselineskip}}
+\newcommand\bistart{\begin{parcolumns}[nofirstindent, rulebetween]{2}}%
+\newcommand\lat[1]{\colchunk[1]{#1}}%
+\newcommand\swe[1]{\colchunck[2]{#1}%
+					\par
+					\colplacechunks}%
+\newcommand\biend{	\end{parcolumns}}%
+%-----------------------------------------------%
+
+%para escribir parentesis en rojo:
+\newcommand{\parent}[1]{%
+	{\color{rubrica}(}%
+	{#1}%
+	{\color{rubrica})}%
+	}%
+	
+	
+%Para las letanias de los santos:
+\newcommand{\letai}[4]{% Para un santo
+ Sancte {#1}%
+\textbf{#2}%
+\textit{#3}%
+{#4}%
+,&\ra ora pro nobis.%
+\\}
+\newcommand{\letaii}[3]{%
+{#1}%
+\textbf{#2}%
+\textit{#3}%
+,&\ra orate pro nobis.%
+\\}
+\newcommand{\leta}[4]{%
+Sancta {#1}%
+\textbf{#2}%
+\textit{#3}%
+{#4}%
+,&\ra ora pro nobis.%
+\\}
+\parindent 0mm

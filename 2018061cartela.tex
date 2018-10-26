@@ -1,0 +1,177 @@
+\documentclass[a4paper,twoside,14pt,openany]{memoir}
+
+\usepackage[italian,latin,spanish,swedish]{babel}
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+
+%---FUENTES---%
+\usepackage{anyfontsize}
+%\usepackage{fontspec}
+
+%\usepackage[bitstream-charter]{mathdesign}%bonita y funciona bien
+%\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{Alegreya} %% Option 'black' gives heavier bold face 
+%\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}}
+
+\usepackage{lettrine}
+\usepackage{amssymb}%activa el modo matematico. Lo hago para poder escribir la cruz maltese de bendecir que se escribe "$\maltese$"
+\usepackage{Zallman}%aqui elijo el tipo de letra para lettrine
+
+\usepackage{graphicx} %uso un grafico para la Ä en el gloria
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{longtable}
+
+%---GREGORIO---%
+\usepackage[autocompile]{gregoriotex}
+%\setspaceafterinitial{2.2mm plus 0em minus 0em}
+%\setspacebeforeinitial{2.2mm plus 0em minus 0em}
+%\def\greinitialformat#1{{\fontsize{50}{50}\selectfont #1}}
+\def\gretextformat#1{{\fontsize{16}{16}\selectfont #1}}
+
+%---AUTOSTYLE---%
+\usepackage[autostyle]{csquotes}
+
+\input capstile-conf.tex
+%\input {leta/configuracionletania.tex}
+\input fancy.tex
+
+
+
+\setcounter{secnumdepth}{0} % para quitar los numeros de las secciones
+
+
+
+\begin{document}
+
+%---INDICE---%
+
+%{\fontsize{12}{12} \selectfont 
+
+%\setcounter{page}{1}
+\setcounter{tocdepth}{2}
+\tableofcontents
+%}
+
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+
+%\newpage\null\thispagestyle{empty}\newpage
+%---CAPITULO 1 SKRIFTLÄRNINGAR---%
+
+\input{te/textossueco2}
+
+
+%---CAPITULO 2 BÖNER OCH LITURGISKA SÅNGER---%
+\chapter{BÖNER OCH LITURGISKA SÅNGER}
+\markboth{BÖNER}{}
+
+%---TEDEUM 2.1---%
+\section{Te Deum}
+
+\input{./te/tedeumtexto}
+\newpage
+
+%---GLORIA 2.2---%
+\section{Gloria}
+\input{./te/gloriatexto}
+\newpage
+\gregorioscore{./mu/gloriamusica}
+\newpage
+%---CREDO 2.3---%
+\section{Credo}
+\input{./te/credotexto}
+\newpage
+\gregorioscore{./mu/credomusica}
+\newpage
+%---ADOROTEDEVOTE 2.4---%
+\section{Adoro te devote}
+\input{./te/adorotedevotetexto}
+\newpage
+\gregorioscore{./mu/adorote}
+\newpage
+%---TRISAGIO 2.5---%
+\section{Trisagium Angelicum}
+\input{./te/trisagio}
+\newpage
+
+%---Veni Creatos 2.5---%
+\section{Veni Creator}
+\input{./te/venicreator}
+\newpage
+
+%---SECTION 3 VÄLSIGNELSE STRUKTUR---%
+\input{te/bendicion}
+\newpage
+
+%---CAPITULO 4 ANTIFONAS VIRGEN---%
+\input{te/antifonasmarianas}
+
+
+%---CAPITULO 5 EXPOS. LIGNUM CRUCIS---%
+\input{te/santacruz}
+\newpage
+
+%---CAPITULO 6 VENERACION RELIQUIA---%
+\input{te/sanjosemaria}
+\medskip
+
+\newpage
+
+%---CAPITULO 7 y 8 COMMUNIO EXTRA MISSAM---%
+\input{te/comuniones}
+\newpage
+
+%---CAPITULO 9 PRECES---%
+\chapter{PRECES}
+\markboth{PRECES}{}
+
+\input{te/preces}
+\newpage
+
+%---CAPITULO 10 BÖN FÖR DE AVLIDNA---%
+\input{te/responso}
+
+
+%---CAPITULO 11 BENDICION SPANSKA---%
+\input{te/bendicioncastellano}
+%\gregorioscore{laudesscore}
+
+
+%---CAPITULO 12 LECTURAS SPANSKA---%
+\input{te/lecturascastellano}
+
+\end{document}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[inner=3cm,top=2.5cm,outer=2.5cm,bottom=2.5cm]{geometry} 
+
+
+
+
+
+
+
+\setcounter{page}{0}%para la dichosa palabreja
+
+
+%---ESTILOS---%
+
+
+
+
+\setbeforesecskip{-1.5ex plus -.5ex minus -.2ex}
+\setaftersecskip{2.3ex plus .2ex}
+\setbeforesubsecskip{-1.25ex plus -.5ex minus -.2ex}
+\setaftersubsecskip{1ex plus .2ex}

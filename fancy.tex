@@ -1,0 +1,39 @@
+%Estilo fancy%%%
+
+%---FANCYHDR---%
+
+%---------DEFINE EL ESTILO DE LOS ENCABEZADOS DE LAS PAGINAS--------------%
+\pagestyle{fancy} 
+\setlength\headheight{18.45483pt}
+\fancyhf{} 
+\fancyhead[LO]{\small\color{rubrica}\rightmark} % En las páginas impares, parte izquierda del encabezado, aparecerá el nombre de capítulo 
+\fancyhead[RE]{\small\color{rubrica}\leftmark} % En las páginas pares, parte derecha del encabezado, aparecerá el nombre de sección 
+\fancyhead[RO,LE]{\thepage} % Números de página en las esquinas de los encabezados 
+%\fancyfoot[CE,CO]{} %Escribo este texto a la izquierda en laspáginas impares y a la derecha en las pares 
+%\renewcommand{\footrulewidth}{0.3pt}
+
+
+%-------------DEFINE EL ESTILO DEL CAPITULO-------------------%
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  %\vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Large\bfseries \thechapter }
+        \par\nobreak
+        \vspace*{10\p@}%
+        \interlinepenalty\@M
+        \hrule
+        \vspace*{10\p@}%
+        \Large \bfseries #1\par\nobreak
+        \par
+        \vspace*{10\p@}%
+    \vskip 10\p@
+  }}
+
+%---------Para definir el estilo de la seccion, y subseccion--------%
+\setsecheadstyle{\LARGE\centering\scshape\color{rubrica}}
+\setsubsecheadstyle{\color{rubrica}\Large\centering\scshape}
+%\setsubsubsecheadstyle{\large\centering\scshape}
+
+

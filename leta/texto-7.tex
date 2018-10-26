@@ -1,0 +1,50 @@
+%leta
+
+% !TEX program = LuaLaTeX+se
+% !TEX encoding = UTF-8 Unicode
+%\documentclass{report}
+\documentclass[twoside,openany,a4paper]{memoir}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage[autocompile]{gregoriotex}
+\usepackage[savepos]{zref}
+\usepackage{lettrine}
+\usepackage{amssymb}%activa el modo matematico. Lo hago para poder escribir la cruz maltese de bendecir que se escribe "$\maltese$"
+\usepackage{Zallman}%aqui elijo el tipo de letra para lettrine
+\usepackage{libertine}
+%\usepackage{multicol}
+
+%\pagestyle{empty}
+%\columnseprule=0.4pt
+
+\input{configuracionletania.tex}
+%\setmainfont{kurier-Regular.otf}
+\begin{document}
+hola mundo
+
+\Vbar
+
+\Rbar
+
+\begin{minipage}{10,5cm}%
+\gregorioscore{Litany-I}%
+\end{minipage}%
+
+%\begin{nstabbing}
+%\>\Vbar \>Fili \>Re-\>démp-\>tor \>mundi \>\textbf{De}-\>us, \>mi-\>se-\>\textit{ré}-\>\textit{re} \>no-\>bis.\\
+%\>{\large \Vbar .} \>Ut \>dígni \>efficiá-\>mur \>pro-\>mi-\>sio-\>ni-\>bus \>Chrís-\>\>ti.\\
+%\>Sancta \>\>Trínitas \>\>unus \>\textbf{De}-\>us, \>mi-\>se-\>\textit{ré}-\>\textit{re} \>no-\>bis.\\
+%\end{nstabbing}
+
+\begin{minipage}{12cm}%
+\gregorioscore{Litany-II}%
+\end{minipage}%
+
+%\begin{nstabbing}
+%\>\Vbar. \>Ut \>dígni \>efficiá-\>mur \>pro-\>mi-\>sio-\>ni-\>bus \>Chrís-\>\>ti.\\
+%\end{nstabbing}
+\begin{minipage}[t]{8cm}%
+	\gabcsnippet{(c4) V/. Ky(f)ri(d)e(d) e(d)le(d)i(c)son(d.) (::)}%
+\end{minipage}%
+\end{document}
